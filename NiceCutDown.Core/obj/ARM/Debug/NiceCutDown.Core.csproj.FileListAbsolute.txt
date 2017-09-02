@@ -1,0 +1,16 @@
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\bin\ARM\Debug\NiceCutDown.Core.dll
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\bin\ARM\Debug\NiceCutDown.Core.pdb
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\bin\ARM\Debug\NiceCutDown.Core.pri
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\NiceCutDown.Core.dll
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\NiceCutDown.Core.pdb
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\priconfig.xml
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\priconfig.xml.intermediate
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\layout.resfiles
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\layout.resfiles.intermediate
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\resources.resfiles
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\resources.resfiles.intermediate
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\pri.resfiles
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\pri.resfiles.intermediate
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\qualifiers.txt
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\qualifiers.txt.intermediate
+D:\Documents\Visual Studio 2017\Projects\NiceCutDown\NiceCutDown.Core\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt

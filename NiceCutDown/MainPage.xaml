@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="NiceCutDown.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NiceCutDown"
+    xmlns:control="using:NiceCutDown.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" >
+
+
+    <Page.TopAppBar >
+        <CommandBar Visibility="Collapsed" Background="White" Foreground="#FF02B8DF">
+            <AppBarButton Icon="Cancel" Label="取消"  Foreground="#FF02B8DF" Click="cancelButton_Click"/>
+            <AppBarButton Icon="Accept" Label="完成"   Foreground="#FF02B8DF" Click="acceptButton_Click" />
+        </CommandBar>
+    </Page.TopAppBar>
+    <Page.BottomAppBar>
+        <CommandBar  Visibility="Collapsed" Background="White" Foreground="#FF02B8DF">
+            <AppBarButton Icon="Delete" Label="删除"  Foreground="#FF02B8DF" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Upload"  Label="上移" Foreground="#FF02B8DF" Click="upButton_Click" />
+            <AppBarButton Icon="Download"  Label="下移" Foreground="#FF02B8DF" Click="downButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid  >
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#33000000" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Image Source="Assets/icons/home_icon_days.png" HorizontalAlignment="Left" Margin="8,4,4,4" VerticalAlignment="Bottom" />
+            <TextBlock HorizontalAlignment="Left" Foreground="Black" Text="最美时光" FontSize="24" Margin="48,0,0,0" VerticalAlignment="Center" TextLineBounds="Tight" />
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="editButton" Background="{x:Null}"  Style="{ThemeResource ButtonStyle}" Width="36" Height="36" Padding="0" Click="editButton_Click" >
+                    <Image Source="Assets/button/days_common_icon_edit_normal.png" />
+                </Button>
+
+                <Button x:Name="settingButton" Background="{x:Null}"  Style="{ThemeResource ButtonStyle}" Width="36" Height="36" Padding="0" Margin="8,0,4,0" Click="settingButton_Click">
+                    <Image Source="Assets/button/days_common_icon_setting_normal.png" />
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid x:Name="emptyGrid" Grid.Row="2" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Margin="0,36"  Foreground="Gray" TextAlignment="Center"  VerticalAlignment="Top">
+                你的时光列表空空如也
+                <LineBreak />
+                快快记录你生命中的最美时光吧
+                </TextBlock>
+            <Button Grid.Row="1" Content="记录我的最美时光" Foreground="#CCFFFFFF"  Background="#FF02B8DF" Padding="0,12" HorizontalAlignment="Stretch" Click="AddCutDownButton_Click" Margin="20,0"/>
+            <Image Grid.Row="2" Source="Assets/pictures/empty_list_default.png" VerticalAlignment="Bottom" />
+        </Grid>
+
+        <Grid x:Name="mainGrid" Grid.Row="2">
+            
+            
+            <ListView x:Name="listview" SelectionChanged="listview_SelectionChanged" Margin="0,12,0,0" >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem" >
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="MinWidth" Value="0" />
+                        <Setter Property="MinHeight" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <control:SingleCutDown CountDays="{Binding Time}" CountBackground="{Binding Color}" CountTitle="{Binding Title}"  Height="48" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="addButton" Background="#FF02B8DF" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,20" Style="{ThemeResource ButtonStyle}" Width="36" Height="36" Padding="0" Click="AddCutDownButton_Click">
+                <SymbolIcon Foreground="White" Symbol="Add" />
+            </Button>
+        </Grid>
+
+
+
+    </Grid>
+</Page>

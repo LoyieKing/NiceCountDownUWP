@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="NiceCutDown.Controls.PictureBackground"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NiceCutDown.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="1280"
+    d:DesignWidth="720"  >
+
+    <UserControl.Resources>
+        <Storyboard x:Name="showImage">
+            <DoubleAnimation Storyboard.TargetName="BackgroundImage" Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.15">
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+    </UserControl.Resources>
+    
+    <Grid>
+        <Canvas >
+            <Image x:Name="BackgroundImage" Opacity="0" Stretch="UniformToFill"  RenderTransformOrigin="0.5,0.5" ImageOpened="BackgroundImage_ImageOpened"  >
+                <Image.RenderTransform>
+                    <CompositeTransform TranslateX="0"/>
+                </Image.RenderTransform>
+            </Image>
+        </Canvas>
+        <Grid Background="#19000000" />
+    </Grid>
+</UserControl>

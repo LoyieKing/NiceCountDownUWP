@@ -1,0 +1,195 @@
+﻿<Page
+    x:Class="NiceCutDown.CountDownPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NiceCutDown.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Storyboard x:Name="showAcitons">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ActionGrid" Storyboard.TargetProperty="Visibility" BeginTime="0:0:0">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Visible"/>
+            </ObjectAnimationUsingKeyFrames>
+
+            <DoubleAnimation Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Opacity"
+                             From="1" To="0" Duration="0:0:0.3" BeginTime="0:0:0" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase  EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_edit" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="-150" To="0" Duration="0:0:0.5" BeginTime="0:0:0">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_download" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="-150" To="0" Duration="0:0:0.5" BeginTime="0:0:0.1">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_delete" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="-150" To="0" Duration="0:0:0.5" BeginTime="0:0:0.2">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_new" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="-150" To="0" Duration="0:0:0.5" BeginTime="0:0:0.3">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Name="hideAcitons">
+            <DoubleAnimation Storyboard.TargetName="ContentGrid" Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.3" BeginTime="0:0:0" >
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase  EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_edit" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="-180" Duration="0:0:0.5" BeginTime="0:0:0">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_download" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="-180" Duration="0:0:0.5" BeginTime="0:0:0.1">
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_delete" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="-180" Duration="0:0:0.5" BeginTime="0:0:0.2">
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="action_new" Storyboard.TargetProperty="(Button.RenderTransform).(CompositeTransform.TranslateX)"
+                             From="0" To="-180" Duration="0:0:0.5" BeginTime="0:0:0.3">
+                <DoubleAnimation.EasingFunction>
+                    <CircleEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ActionGrid" Storyboard.TargetProperty="Visibility" BeginTime="0:0:0">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="Collapsed"/>
+            </ObjectAnimationUsingKeyFrames>
+
+        </Storyboard>
+    </Page.Resources>
+
+
+    <Grid x:Name="rootGrid" Tapped="Grid_Tapped" >
+        <local:PictureBackground x:Name="background" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Grid x:Name="ContentGrid" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button       Style="{ThemeResource ButtonStyle}" 
+                            Background="Transparent"  
+                            Content=""   
+                            FontFamily="Segoe MDL2 Assets"   
+                            FontSize="20"  
+                            BorderThickness="0"  
+                            Foreground="White" Margin="8,4,0,4" Click="BackButton_Click"/>
+                <TextBlock Foreground="White" Text="最美时光" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="48,0,0,0"/>
+            </Grid>
+            <StackPanel Grid.Row="1" Margin="0,12,0,0">
+                <TextBlock x:Name="dateTextBlock" Foreground="White" Text="2017-8-14" FontSize="24" Margin="12,4,0,0"/>
+                <TextBlock x:Name="titleTextBlock" Foreground="White" FontSize="24" TextWrapping="WrapWholeWords" Margin="12,0,0,0" />
+            </StackPanel>
+            <local:DaysCount Grid.Row="2" Margin="12,0,0,0" x:Name="daysCount"/>
+        </Grid>
+
+        <Grid x:Name="ActionGrid" Visibility="Collapsed">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Opacity="0.9">
+                <StackPanel Grid.Row="1" Margin="12,12,0,0" VerticalAlignment="Top">
+                    <Button x:Name="action_edit" Background="{x:Null}" Padding="0" BorderThickness="0"  Click="action_edit_Click" Tapped="Handled_Tapped" >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="-150"/>
+                        </Button.RenderTransform>
+                        <StackPanel Margin="2" Orientation="Horizontal">
+                            <Grid  Background="Black" >
+                                <BitmapIcon Foreground="White" UriSource="ms-appx:///Assets/button/icon_edit_normal.png" Margin="12" Width="24" Height="24"/>
+                            </Grid>
+                            <Grid Background="#FF16B1CC" >
+                                <TextBlock Foreground="White" Text="编辑" FontSize="18" Margin="32,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextLineBounds="Tight"/>
+                            </Grid>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="action_download" Background="{x:Null}" Padding="0" BorderThickness="0" Click="action_download_Click" Tapped="Handled_Tapped" >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="-150"/>
+                        </Button.RenderTransform>
+                        <StackPanel Margin="2" Orientation="Horizontal">
+                            <Grid  Background="Black" >
+                                <BitmapIcon Foreground="White" UriSource="ms-appx:///Assets/button/icon_download_normal.png" Margin="12" Width="24" Height="24"/>
+                            </Grid>
+                            <Grid Background="#FF16B1CC" >
+                                <TextBlock Foreground="White" Text="下载" FontSize="18" Margin="32,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextLineBounds="Tight"/>
+                            </Grid>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="action_delete" Background="{x:Null}" Padding="0" BorderThickness="0" Click="action_delete_Click" Tapped="Handled_Tapped"  >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="-150"/>
+                        </Button.RenderTransform>
+                        <StackPanel Margin="2" Orientation="Horizontal">
+                            <Grid  Background="Black" >
+                                <BitmapIcon Foreground="White" UriSource="ms-appx:///Assets/button/icon_delete_normal.png" Margin="12" Width="24" Height="24"/>
+                            </Grid>
+                            <Grid Background="#FFDB495A" >
+                                <TextBlock Foreground="White" Text="删除" FontSize="18" Margin="32,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextLineBounds="Tight"/>
+                            </Grid>
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="1" Margin="12,12,0,0" VerticalAlignment="Bottom" >
+                    <Button  x:Name="action_new" Background="{x:Null}" Padding="0" BorderThickness="0" Tapped="Handled_Tapped" Click="action_new_Click" >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateX="-150"/>
+                        </Button.RenderTransform>
+                        <StackPanel Margin="2" Orientation="Horizontal">
+                            <Grid  Background="Black" >
+                                <BitmapIcon Foreground="White" UriSource="ms-appx:///Assets/button/icon_add_normal.png" Margin="12" Width="24" Height="24"/>
+                            </Grid>
+                            <Grid Background="#FF1AAF85" >
+                                <TextBlock Foreground="White" Text="新建" FontSize="18" Margin="32,0" HorizontalAlignment="Center" VerticalAlignment="Center" TextLineBounds="Tight"/>
+                            </Grid>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

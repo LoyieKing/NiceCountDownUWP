@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="NiceCutDown.Controls.SingleCutDown"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NiceCutDown.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="30"
+    d:DesignWidth="400" Loaded="UserControl_Loaded"  >
+
+    <UserControl.Resources>
+        <Storyboard x:Name="ani">
+            <DoubleAnimation x:Name="doub" Storyboard.TargetName="backgroundGrid" Storyboard.TargetProperty="(Grid.RenderTransform).(CompositeTransform.ScaleX)"
+                              Duration="0:0:0.5" EnableDependentAnimation="True">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.3"  EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
+    
+    <Grid >
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition x:Name="countDaysColumn" Width="auto"/>
+            <ColumnDefinition x:Name="countProgress" Width="0"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="backgroundGrid" Grid.ColumnSpan="3"  RenderTransformOrigin="0,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleX="0"/>
+            </Grid.RenderTransform>
+        </Grid>
+
+        <TextBlock x:Name="countDays"  Foreground="White" FontSize="24" VerticalAlignment="Center" Margin="4,0"/>
+        <TextBlock x:Name="countTitle" Foreground="White" FontSize="20" 
+                   VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="4,0"
+                   Grid.Column="2" TextReadingOrder="DetectFromContent" TextTrimming="CharacterEllipsis"/>
+    </Grid>
+</UserControl>
